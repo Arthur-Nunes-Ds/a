@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Me Derupe</title>
+  <link rel="icon" href="caminho/para/seu/favicon.ico">
+
+  <style>
+    :root{
+      --pink:#ff9ec2;
+      --purple:#7b61ff;
+      --bg-angle:135deg;
+      --overlay: rgba(0,0,0,0.08);
+    }
+
+    /* reset simples */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      min-height:100vh;
+      /* fundo com degrade */
+      background: linear-gradient(var(--bg-angle), var(--pink) 0%, var(--purple) 100%);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+
+    /* Texto de fundo grande (como watermark) */
+    .bg-word{
+      position: absolute;
+      font-weight: 900;
+      font-size: 24vw; /* responsivo */
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.08);
+      transform: rotate(-12deg) translateY(-5%);
+      user-select: none;
+      pointer-events: none;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px rgba(0,0,0,0.02);
+    }
+
+    /* cartão central com conteúdo (opcional) */
+    .card{
+      position: relative;
+      padding: 2.4rem 2.6rem;
+      border-radius: 18px;
+      backdrop-filter: blur(8px) saturate(120%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      border: 1px solid rgba(255,255,255,0.12);
+      max-width:880px;
+      width:calc(100% - 48px);
+      text-align:center;
+    }
+
+    .title{
+      font-size: clamp(22px, 4.6vw, 40px);
+      color: white;
+      font-weight:800;
+      margin-bottom:0.6rem;
+      letter-spacing:-0.02em;
+    }
+
+    .subtitle{
+      color: rgba(255,255,255,0.9);
+      font-weight:500;
+      opacity:0.95;
+    }
+
+    /* animação sutil no degrade de fundo */
+    @keyframes drift {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    body{
+      background-size: 200% 200%;
+      animation: drift 10s ease-in-out infinite;
+    }
+
+    /* responsividade */
+    @media (max-width:520px){
+      .bg-word{font-size:38vw; transform: rotate(-8deg) translateY(-6%)}
+      .card{padding:1.6rem;border-radius:12px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Texto de fundo grande -->
+  <div class="bg-word">me derupe</div>
+
+  <!-- Conteúdo central (apenas demonstrativo) -->
+  <main class="card" role="main" aria-label="Painel central">
+    <h1 class="title">me derupe</h1>
+  </main>
+
+</body>
+</html>
